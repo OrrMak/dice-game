@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import RestartButton from './RestartButton.jsx';
 import TheDice from './TheDice.jsx' 
+import Player from './Player.jsx';
 /* eslint-disable react/prop-types */
 
 
@@ -20,6 +21,8 @@ function GamePage({ winningScore }) {
         setDiceRes1(newDiceRes1);
         setDiceRes2(newDiceRes2);
 
+        const addToSum=setSum(newDiceRes1+newDiceRes2);
+
     //check
         console.log( `this is setDiceRes1: ${newDiceRes1}`);
         console.log( `this is setDiceRes2: ${newDiceRes1}`);
@@ -30,6 +33,8 @@ function GamePage({ winningScore }) {
         <RestartButton/>
         <TheDice diceRes1={diceRes1} diceRes2={diceRes2}/>
         <button id='RollTheDiceButton' onClick={roll}>ROLL DICE</button>
+        <Player playerTitle="PLAYER 1" sumScore={sum} />
+        <Player Player={diceRes1} diceRes2={diceRes2}/>
       </div>
     );
   }
