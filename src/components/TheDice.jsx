@@ -1,6 +1,7 @@
 import React from 'react';
+/* eslint-disable react/prop-types */
 
-function TheDice( {diceRes1}, {diceRes2}) {
+function TheDice( {diceRes1,diceRes2}) {
   return (
     <div>
         <img src={`../assets/images/dice-${diceRes1}.png`} alt={`dice-${diceRes}`}/>
