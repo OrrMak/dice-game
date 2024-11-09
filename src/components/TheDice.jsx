@@ -1,10 +1,10 @@
 import React from 'react';
 
-function TheDice() {
+function TheDice( {diceRes1}, {diceRes2}) {
   return (
     <div>
-        <img src={`../assets/images/dice-${diceRes}.png`} alt={`dice-${diceRes}`}/>
-        <img src={`../assets/images/dice-${diceRes}.png`} alt={`dice-${diceRes}`}/>
+        <img src={`../assets/images/dice-${diceRes1}.png`} alt={`dice-${diceRes}`}/>
+        <img src={`../assets/images/dice-${diceRes2}.png`} alt={`dice-${diceRes}`}/>
     </div>
   )
 }
