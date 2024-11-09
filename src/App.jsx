@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import GamePage from './pages/GamePage';
+import GamePage from './components/GamePage.jsx';
+import HomePage from './components/HomePage.jsx';
 
 function App() {
   const [winningScore, setWinningScore] = useState(null);

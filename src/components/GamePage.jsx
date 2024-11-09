@@ -1,5 +1,5 @@
 import React from 'react';
-import './GamePage.css';
+import RestartButton from './RestartButton.jsx';
 /* eslint-disable react/prop-types */
 
 
@@ -7,7 +7,7 @@ function GamePage({ winningScore }) {
     console.log("GamePage rendered");
     return (
       <div>
-        <h1>Game Page</h1>
+        <RestartButton/>
         <p>Winning Score: {winningScore}</p>
       </div>
     );

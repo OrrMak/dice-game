@@ -1,5 +1,5 @@
 import React from 'react';
-import './HomePage.css';
+// import './HomePage.css';
 /* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom';
 
@@ -13,7 +13,7 @@ function HomePage({setWinningScore}) {
 
   return (
     <>
-        <h4>Roll The Dice</h4>
+        <h1>Roll The Dice</h1>
         <p>INSTRUCTIONS AS FOLLOW</p>
         <section id='scoreTargetButton'>
             <h2>Please Enter A Target Score</h2>
