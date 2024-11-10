@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 function HomePage({setWinningScore}) {
 //this function updates the winning score in the parent component (App), according to the input value.
     const handleTheScoreChange= (ev)=>{
-        setWinningScore(Number(ev.target.value));
+        setWinningScore(Number(ev.target.value)); // set winning score as the input value.
         console.log(ev.target.value);;
     };
 
