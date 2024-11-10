@@ -12,11 +12,8 @@ function GamePage({ winningScore }) {
   const [totScore,setTotScore]=useState[0,0]; // cumulative game score 
   const [currentPlayer, setCurrentPlayer]=useState(0); // curretn palyer = 0 or 1
 
+  console.log("check: GamePage rendered");
 
-    //check
-    console.log("check: GamePage rendered");
-
-    //roll function
     function roll(){
         const newDiceRes1= (Math.random()*6)+1;
         const newDiceRes2= (Math.random()*6)+1;
@@ -31,21 +28,27 @@ function GamePage({ winningScore }) {
         else {
           setRoundScore(roundScore+(newDiceRes1+newDiceRes2));
         }
-        //check
+        
         console.log(`current player is:${currentPlayer}`);
         console.log(`roundScore is:${roundScore}`);
-    //check
-        console.log( `this is setDiceRes1: ${newDiceRes1}`);
-        console.log( `this is setDiceRes2: ${newDiceRes1}`);
-    }    
-        function hold(){
+        console.log(`this is setDiceRes1: ${newDiceRes1}`);
+        console.log(`this is setDiceRes2: ${newDiceRes1}`);
+    }  
+
+    function hold(){
           const newTotScore=[...totScore] // copy of totScore
           newTotScore[currentPlayer] +=roundScore; //updates currentPlayer totScore at the playerIndex 
           setTotScore(newTotScore); // updates the array after changing the value in the currentPlayer index
-
+          // setRoundScore(0);
           setCurrentPlayer(prevPlayer=>1-prevPlayer);// switchPlayer
-        }
 
+          //winning scenario
+          if(totScore[currentPlayer]>=winningScore){
+
+          }
+    }
+
+    if()
 
     return (
       <div>
