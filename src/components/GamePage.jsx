@@ -72,9 +72,17 @@ function GamePage({ winningScore }) {
         <RestartButton/>
         <TheDice diceRes1={diceRes1} diceRes2={diceRes2}/>
         <button id='RollTheDiceButton' onClick={roll}>ROLL DICE</button>
-        {/* <Player playerTitle="PLAYER 1"/> */}
         <button id='holdButton' onClick={hold}>HOLD</button>
-           
+        <Player 
+          playerTitle="Player 1"
+          totScore={totScore[0]}
+          roundScore={currentPlayer===0? roundScore : 0 } 
+        />
+        <Player 
+          playerTitle="Player 2"
+          totScore={totScore[2]}
+          roundScore={currentPlayer===1? roundScore : 0 }
+        />
            {/* Conditionally render the WinPopup */}
         
         {showWinPopup &&(
