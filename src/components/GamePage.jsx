@@ -29,6 +29,11 @@ function GamePage({ winningScore }) {
   function switchPlayer(){
       setCurrentPlayer(prevPlayer=>1-prevPlayer);
     }
+  function sumTot(){
+    const newTotScore=[...totScore] // copy of totScore
+    newTotScore[currentPlayer] +=roundScore; //updates currentPlayer totScore at the playerIndex 
+    setTotScore(newTotScore); // updates the array after changing the value in the currentPlayer index
+  }
 
   function roll(){
         const newDiceRes1= (Math.floor(Math.random()*6))+1;
@@ -38,6 +43,7 @@ function GamePage({ winningScore }) {
 
         //case double auto playerSwitch, else the roundScore is updated.
         if(newDiceRes1===newDiceRes2){
+          sumTot();
           setRoundScore(0);
           switchPlayer();
         }
@@ -52,23 +58,19 @@ function GamePage({ winningScore }) {
     }  
 
     function hold(){
-          const newTotScore=[...totScore] // copy of totScore
-          newTotScore[currentPlayer] +=roundScore; //updates currentPlayer totScore at the playerIndex 
-          setTotScore(newTotScore); // updates the array after changing the value in the currentPlayer index
-          // setRoundScore(0);
-
-          //winning scenario
-          if(totScore[currentPlayer]>=winningScore){
+      sumTot();
+      //winning scenario
+      if(totScore[currentPlayer]>=winningScore){
             setShowWinPopup(true);
           }
-          else{
+      else{
             switchPlayer();
           }
     }
 
     return (
       <div>
-        <RestartButton/>
+        <RestartButton goToHomePage={goToHomePage}/>
         <TheDice diceRes1={diceRes1} diceRes2={diceRes2}/>
         <button id='RollTheDiceButton' onClick={roll}>ROLL DICE</button>
         <button id='holdButton' onClick={hold}>HOLD</button>
