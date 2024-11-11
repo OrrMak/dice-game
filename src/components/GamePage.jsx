@@ -10,16 +10,16 @@ function GamePage({ winningScore }) {
   const [diceRes1,setDiceRes1]=useState(1);
   const [diceRes2,setDiceRes2]=useState(1);
   const [roundScore,setRoundScore]=useState(0); //round score 
-  const [totScore,setTotScore]=useState[0,0]; // cumulative game score 
+  const [totScore,setTotScore]=useState([0,0]); // cumulative game score 
   const [currentPlayer, setCurrentPlayer]=useState(0); // curretn palyer = 0 or 1
   const [showWinPopup,setShowWinPopup]=useState(false)// first popup is hidden;
   
   console.log("check: GamePage rendered");
   
-  const nevigate=useNavigate();
+  const navigate=useNavigate();
   
   const goToHomePage= () => {
-    nevigate('/');
+    navigate ('/');
   };
   
   function closePopup(){
@@ -31,8 +31,8 @@ function GamePage({ winningScore }) {
     }
 
   function roll(){
-        const newDiceRes1= (Math.random()*6)+1;
-        const newDiceRes2= (Math.random()*6)+1;
+        const newDiceRes1= (Math.floor(Math.random()*6))+1;
+        const newDiceRes2= (Math.floor(Math.random()*6))+1;
         setDiceRes1(newDiceRes1);
         setDiceRes2(newDiceRes2);
 
@@ -56,7 +56,6 @@ function GamePage({ winningScore }) {
           newTotScore[currentPlayer] +=roundScore; //updates currentPlayer totScore at the playerIndex 
           setTotScore(newTotScore); // updates the array after changing the value in the currentPlayer index
           // setRoundScore(0);
-          switchPlayer();
 
           //winning scenario
           if(totScore[currentPlayer]>=winningScore){
@@ -80,7 +79,7 @@ function GamePage({ winningScore }) {
         />
         <Player 
           playerTitle="Player 2"
-          totScore={totScore[2]}
+          totScore={totScore[1]}
           roundScore={currentPlayer===1? roundScore : 0 }
         />
            {/* Conditionally render the WinPopup */}
