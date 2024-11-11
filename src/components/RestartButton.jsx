@@ -1,16 +1,11 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Import the useNavigate hook
+/* eslint-disable react/prop-types */
 
-function RestartButton() {
-    const navigate=useNavigate(); // Initialize the navigate function
-    
-    const restart= ()=>{
-        navigate('/');
-    };
+function RestartButton({goToHomePage}) {    
 
     return (
     <div>
-        <button id="restartButton" onClick={restart}>New Game</button>
+        <button id="restartButton" onClick={goToHomePage}>New Game</button>
     </div>
   )
 }
