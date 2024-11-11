@@ -74,6 +74,17 @@ function GamePage({ winningScore }) {
         <button id='RollTheDiceButton' onClick={roll}>ROLL DICE</button>
         {/* <Player playerTitle="PLAYER 1"/> */}
         <button id='holdButton' onClick={hold}>HOLD</button>
+           
+           {/* Conditionally render the WinPopup */}
+        
+        {showWinPopup &&(
+          <WinPopup
+            currentPlayer={`Player ${currentPlayer+1}`}
+            totScore={totScore[currentPlayer]}
+            goToHomePage={goToHomePage}
+            closePopup={closePopup}
+          />
+          )}
       </div>
     );
   }
